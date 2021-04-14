@@ -1,1 +1,9 @@
-<p>senators-list works!</p>
+<p *ngFor="let senator of Senators.getList()[currentPage]">
+  {{ senator.id | number: "3.0" }} - {{ senator.nomeSenador }}
+</p>
+<button (click)="previousPage()" [disabled]="FIRST_PAGE">Anterior</button>
+<span>
+  {{ currentPage + 1 | number: "2.0" }} de
+  {{ Senators.getTotalPages() }} páginas
+</span>
+<button (click)="nextPage()" [disabled]="LAST_PAGE">Próxima</button>
