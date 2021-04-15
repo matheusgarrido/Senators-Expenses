@@ -6,7 +6,10 @@
 >
 </mat-paginator>
 <mat-selection-list [multiple]="false">
-  <mat-list-option *ngFor="let senator of SENATORS">
+  <mat-list-option
+    *ngFor="let senator of SENATORS"
+    [routerLink]="['/senator', senator.id]"
+  >
     {{ senator.id | number: "3.0" }} - {{ senator.nomeSenador }}
   </mat-list-option>
 </mat-selection-list>
