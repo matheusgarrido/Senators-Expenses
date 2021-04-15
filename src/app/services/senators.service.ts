@@ -74,7 +74,6 @@ export class Senator {
                 tipo: this.typeNames[tipo - 1],
                 fornec,
                 valor,
-                // tipoNome: this.typeNames[expense.tipo - 1],
               };
             }),
           ],

@@ -6,10 +6,10 @@
   </mat-list-option>
   <mat-list-option *ngFor="let resume of Senator.getExpenseResume">
     <label>
-      <span class="description">
+      <span>
         {{ resume?.tipoNome }}
       </span>
-      <span class="value">
+      <span>
         {{ (resume ? resume.total : 0) | currency: "R$" }}
       </span>
     </label>
@@ -17,8 +17,8 @@
   </mat-list-option>
   <mat-list-option>
     <label>
-      <span class="description"> Total </span>
-      <span class="value">
+      <span> Total </span>
+      <span>
         {{ Senator.getTotal | currency: "R$" }}
       </span>
     </label>
