@@ -1,15 +1,18 @@
-<mat-paginator
-  [length]="Senators.getList.length"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25, 100]"
-  (page)="changePage($event)"
->
-</mat-paginator>
-<mat-selection-list [multiple]="false">
-  <mat-list-option
-    *ngFor="let senator of SENATORS"
-    [routerLink]="['/senator', senator.id]"
+<app-header></app-header>
+<main>
+  <mat-paginator
+    [length]="Senators.getList.length"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="changePage($event)"
   >
-    {{ senator.id | number: "3.0" }} - {{ senator.nomeSenador }}
-  </mat-list-option>
-</mat-selection-list>
+  </mat-paginator>
+  <mat-selection-list [multiple]="false">
+    <mat-list-option
+      *ngFor="let senator of SENATORS"
+      [routerLink]="['/senator', senator.id]"
+    >
+      {{ senator.nomeSenador }}
+    </mat-list-option>
+  </mat-selection-list>
+</main>

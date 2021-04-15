@@ -1,0 +1,9 @@
+footer {
+  span {
+    font-size: 14px;
+    margin-right: 0;
+    &:first-of-type {
+      margin: auto;
+    }
+  }
+}

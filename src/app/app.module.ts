@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+import { HeaderComponent } from './header/header.component';
 registerLocaleData(ptBr);
 
 @NgModule({
@@ -20,6 +21,7 @@ registerLocaleData(ptBr);
     AppComponent,
     SenatorsListComponent,
     SenatorInformationComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
