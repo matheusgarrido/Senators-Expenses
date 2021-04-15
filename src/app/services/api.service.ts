@@ -2,10 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface SenatorList {
-  id: number;
-  nomeSenador: string;
-}
 @Injectable({ providedIn: 'root' })
 export class API {
   constructor(private HTTP: HttpClient) {}

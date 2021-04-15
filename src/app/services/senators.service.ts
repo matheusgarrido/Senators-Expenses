@@ -9,34 +9,24 @@ export interface SenatorsListType {
   providedIn: 'root',
 })
 export class Senators {
-  constructor(private API: API) {}
-  private list: Array<SenatorsListType[]> = [];
+  constructor(private API: API) {
+    this.fetch();
+  }
+  private list: SenatorsListType[] = [];
   private totalPages = 0;
 
   private fetch() {
-    try {
-      this.API.get<SenatorsListType[]>('senadores').subscribe((res) => {
-        this.totalPages = Math.ceil(res.length / 10);
-        for (let i = 0; i <= this.totalPages; i++) {
-          this.list.push(res.slice(i * 10, i * 10 + 10));
-        }
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    return this.API.get<SenatorsListType[]>('senadores').subscribe((res) => {
+      this.list = res;
+      return res;
+    });
   }
 
-  public getList() {
-    try {
-      if (!this.list.length) {
-        this.fetch();
-      }
-      return this.list;
-    } catch (err) {
-      console.log(err);
-    }
+  get getList(): SenatorsListType[] {
+    return this.list;
   }
-  public getTotalPages() {
+
+  get getTotalPages(): number {
     return this.totalPages;
   }
 }

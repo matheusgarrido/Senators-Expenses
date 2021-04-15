@@ -1,9 +1,12 @@
-<p *ngFor="let senator of Senators.getList()[currentPage]">
-  {{ senator.id | number: "3.0" }} - {{ senator.nomeSenador }}
-</p>
-<button (click)="previousPage()" [disabled]="FIRST_PAGE">Anterior</button>
-<span>
-  {{ currentPage + 1 | number: "2.0" }} de
-  {{ Senators.getTotalPages() }} páginas
-</span>
-<button (click)="nextPage()" [disabled]="LAST_PAGE">Próxima</button>
+<mat-paginator
+  [length]="Senators.getList.length"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="changePage($event)"
+>
+</mat-paginator>
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let senator of SENATORS">
+    {{ senator.id | number: "3.0" }} - {{ senator.nomeSenador }}
+  </mat-list-option>
+</mat-selection-list>
